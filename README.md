@@ -7,5 +7,5 @@
 * 이미지 파일 출처
   * [Flaticon](https://www.flaticon.com/)
     * [다이아 몬드 이미지 - smashicons](https://smashicons.com/)
-    * [블럭 - freepik](http://www.freepik.com)
-    * [도둑 - freepik](http://www.freepik.com)
+    * [블럭 이미지 - freepik](http://www.freepik.com)
+    * [도둑 이미지 - freepik](http://www.freepik.com)
