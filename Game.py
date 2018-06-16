@@ -9,11 +9,9 @@ import utils
 import file_handle
 
 from defines import *
-from Button import *
 from Sokoban import *
-from InteractiveButton import *
 from BoardPainter import *
-from Label import *
+from Component import *
 
 def game_main():  # 게임 메인화면 입니다.
   screen = pygame.display.set_mode(SCREEN_SHAPE) # 그림을 그릴 수 있는 Surface를 생성 후 반환 합니다. 인자로 Surface크기를 주었습니다.
