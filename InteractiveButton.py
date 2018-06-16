@@ -1,5 +1,4 @@
 import pygame
-import utils
 
 class InteractiveButton:
   def __init__(self, rect, normal_color, hover_color, font_color, font_size, text):
