@@ -7,17 +7,6 @@ def mapping(click_pos, start_pos, board_shape, table_shape):
   y = int((click_pos[1] - start_pos[1]) / delta_y)
 
   return x, y
-  
-def middle_of_rect(rect): # 사각형의 중간 위치 반환
-  start_x = rect[0]
-  start_y = rect[1]
-  width = rect[2]
-  height = rect[3]
-
-  center_x = start_x + width / 2
-  center_y = start_y + height / 2
-
-  return center_x, center_y
 
 def calculate_delta(board_shape, table_shape):
   delta_x = int(board_shape[0] / table_shape[0])

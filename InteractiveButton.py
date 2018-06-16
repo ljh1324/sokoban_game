@@ -34,7 +34,7 @@ class InteractiveButton:
       pygame.draw.rect(screen, self.__normal_color, self.__rect)
 
     text_rect = self.__txt_surface.get_rect()                             # 텍스트 객체의 출력 위치를 가져온다
-    center_x, center_y = utils.middle_of_rect(self.__rect)                # 사각형의 중심 좌표를 계산합니다.
+    center_x, center_y = self.__rect.center
     text_rect.center = (center_x, center_y)                               # 텍스트 객체의 출력 중심 좌표를 설정한다
 
     screen.blit(self.__txt_surface, text_rect)                            # screen(Surface객체)에 text_rect위치에 txt_surface를 그려줍니다.
