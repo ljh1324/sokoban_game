@@ -74,7 +74,8 @@ def game_start():
   move_cnt = 0
   move_kind = NOT_MOVE
 
-  while True:
+  done = False
+  while not done:
     for event in pygame.event.get():
       # 이벤트를 처리하는 부분 -> 키보드, 마우스 등의 이벤트 처리 코드가 들어감
       if event.type ==  pygame.QUIT:
@@ -82,7 +83,7 @@ def game_start():
         sys.exit()
       elif event.type ==  pygame.KEYDOWN:
         if event.key ==  pygame.K_ESCAPE:
-          return
+          done = True
         elif event.key == pygame.K_r:
           move_cnt = 0
           sokoban = Sokoban(board)     # 'r' 키를 눌렀을 경우 게임을 초기화 합니다.
@@ -125,7 +126,7 @@ def game_start():
       #easy_draw.draw_text(screen, 'Win!!', (260, 260), BLACK, 32)
       pygame.display.flip()
       sleep(1)
-      return
+      done = True
   
 
 
@@ -171,7 +172,7 @@ def game_make():
         filename = 'maps/' + filename
         try:
           file_handle.save_board(filename, board)  # 게임판을 filename에 저장합니다.
-          return
+          done = True
         except:
           pass
 
