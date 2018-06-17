@@ -3,9 +3,7 @@ from defines import *
 
 class Sokoban:
   def __init__(self, board):
-    self.__shape = (len(board), len(board[0]))
-    #self.__width = len(board[0])
-    #self.__height = len(board)
+    self.__shape = (len(board[0]), len(board))
     self.__player_x = -1
     self.__player_y = -1
     self.__game_map = utils.make_2D_array(self.__shape)
@@ -13,8 +11,8 @@ class Sokoban:
     self.__dx = [0, 0, -1, 1]
     self.__dy = [-1, 1, 0, 0]
 
-    for y in range(self.__shape[0]):
-      for x in range(self.__shape[1]):
+    for y in range(self.__shape[1]):
+      for x in range(self.__shape[0]):
         if board[y][x] == PLAYER:
           self.__player_x = x
           self.__player_y = y
@@ -25,7 +23,7 @@ class Sokoban:
           self.__game_map[y][x] = board[y][x]
   
   def in_range(self, x, y):
-    return 0 <= x < self.__shape[1] and 0 <= y < self.__shape[0]
+    return 0 <= x < self.__shape[0] and 0 <= y < self.__shape[1]
 
   def can_move(self, dir):
     next_x = self.__player_x + self.__dx[dir]

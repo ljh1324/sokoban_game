@@ -20,7 +20,7 @@ def is_portal(item):
   return item == RED_PORTAL or item == BLUE_PORTAL or item == YELLOW_PORTAL
 
 def make_2D_array(shape):
-  return [[0 for x in range(shape[1])] for y in range(shape[0])]
+  return [[0 for x in range(shape[0])] for y in range(shape[1])]
 
 def portal_to_stone(portal):
   return portal - 1

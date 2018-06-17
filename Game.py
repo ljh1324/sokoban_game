@@ -1,11 +1,9 @@
 import pygame                   # pygame 모듈을 import
 from pygame.locals import *
-import os 
 import sys
 from time import sleep
 
 import utils
-#import easy_draw
 import file_handle
 
 from defines import *
@@ -103,30 +101,28 @@ def game_start():
         walk_effect.play(maxtime=500)
       move_kind = NOT_MOVE
       move_cnt += 1  # 움직임 횟수를 1증가 시킵니다.
+    move_label.set_text('Move: {0}'.format(move_cnt))    # Label에 기록된 움직임 횟수를 수정합니다.
 
     game_map = sokoban.get_game_map()         # 이벤트를 처리 후 업데이트된 게임맵을 받아옵니다.
     portal_list = sokoban.get_portal_list()   # sokoban의 포탈 위치를 받아옵니다.
-
-    
-    #easy_draw.draw_map_and_portal(screen, boardRect, game_map, portal_list)
 
     screen.fill(WHITE)
 
     board_painter.draw_board(screen, game_map)           # 게임맵을 그립니다.
     board_painter.draw_portal(screen, portal_list)       # 포탈을 그립니다.
 
-    move_label.set_text('Move: {0}'.format(move_cnt))    # Label에 기록된 움직임 횟수를 수정합니다.
     move_label.draw(screen)                              # Label을 screen에 그려줍니다.
     pygame.display.flip()                                # 화면 전체를 업데이트 합니다.
-
+    
     if sokoban.is_win():  # 모든 돌이 적절한 포탈에 위치했을 경우 "Win" Label을 보여준 후 메인 화면으로 돌아갑니다.
       win_label = Label((260, 260), BLACK, 32, 'Win!')
       win_label.draw(screen)
       win_effect.play(maxtime=2500)
-      #easy_draw.draw_text(screen, 'Win!!', (260, 260), BLACK, 32)
       pygame.display.flip()
-      sleep(1)
+      sleep(2.5)
       done = True
+
+    
   
 
 
@@ -211,8 +207,6 @@ def game_make():
     board_painter.draw_board(screen, board)
 
     pygame.display.flip()
-  
-  return
 
 
 def game_input():
@@ -242,7 +236,7 @@ def game_input():
         else:
           text += event.unicode  # 엔터키, 백스페이스키, ESC키가 아닌 경우 text에 입력받은 값을 추가합니다.
           filename_label.set_text(': ' + text)  # Label을 업데이트 합니다.
-    screen.fill((30, 30, 30))
+    screen.fill(DARK_GRAY)
     info_label.draw(screen)
     filename_label.draw(screen)
     pygame.display.flip()
