@@ -203,9 +203,9 @@ def game_make():
           board[y][x] = tool  # board[y][x]에 tool값을 넣어준다.
 
           if utils.is_stone(tool):  # tool이 stone일 경우 portal로 변환시킨다.
-            tool += 1
+            tool = utils.stone_to_portal(tool)
           elif utils.is_portal(tool): # tool이 portal일 경우 stone으로 변환시킨다.
-            tool -= 1
+            tool = utils.portal_to_stone(tool)
     
     board_painter.draw_board(screen, board)
 
