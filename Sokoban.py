@@ -19,12 +19,8 @@ class Sokoban:
           self.__player_x = x
           self.__player_y = y
           self.__game_map[y][x] = board[y][x]
-        elif board[y][x] == RED_PORTAL:
-          self.__portal_list.append((x, y, RED_STONE))
-        elif board[y][x] == BLUE_PORTAL:
-          self.__portal_list.append((x, y, BLUE_STONE))
-        elif board[y][x] == YELLOW_PORTAL:
-          self.__portal_list.append((x, y, YELLOW_STONE))
+        elif utils.is_portal(board[y][x]):
+          self.__portal_list.append((x, y, board[y][x]))
         else:
           self.__game_map[y][x] = board[y][x]
   
@@ -78,7 +74,8 @@ class Sokoban:
     for portal in self.__portal_list:
       x = portal[0]
       y = portal[1]
-      want = portal[2]
+      want = utils.portal_to_stone(portal[2])
+      
       if self.__game_map[y][x] != want:
         return False
     return True

@@ -21,3 +21,9 @@ def is_portal(item):
 
 def make_2D_array(shape):
   return [[0 for x in range(shape[1])] for y in range(shape[0])]
+
+def portal_to_stone(portal):
+  return portal - 1
+
+def stone_to_portal(stone):
+  return stone + 1
